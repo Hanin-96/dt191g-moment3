@@ -1,4 +1,6 @@
-namespace moment3
+using Microsoft.EntityFrameworkCore;
+using Moment3.Data;
+namespace Moment3
 {
     public class Program
     {
@@ -8,6 +10,11 @@ namespace moment3
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            //Skapar koppling till AuthorContext
+            builder.Services.AddDbContext<AuthorContext>
+                (options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultDbConnection"))
+);
 
             var app = builder.Build();
 

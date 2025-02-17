@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using moment3.Models;
+using Moment3.Models;
 
-namespace moment3.Controllers
+namespace Moment3.Controllers
 {
     public class HomeController : Controller
     {
