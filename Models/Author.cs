@@ -6,8 +6,10 @@ namespace Moment3.Models
         //Properties för Author
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Fyll i författare")]
         public string? AuthName { get; set; }
+
+        public List<Book>? Books { get; set; }
 
     }
 }

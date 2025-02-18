@@ -12,7 +12,7 @@ namespace Moment3
             builder.Services.AddControllersWithViews();
 
             //Skapar koppling till AuthorContext
-            builder.Services.AddDbContext<AuthorContext>
+            builder.Services.AddDbContext<BookStoreDbContext>
                 (options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultDbConnection"))
 );
 
