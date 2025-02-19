@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Moment3.Data;
 using Moment3.Models;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Moment3.Controllers
 {
@@ -19,11 +20,22 @@ namespace Moment3.Controllers
             _context = context;
         }
 
+        //Redirect till skapa ny författare
+        public IActionResult AuthorRedirect()
+        {
+            return RedirectToAction("Create", "Authors");
+        }
+
         // GET: Books
         public async Task<IActionResult> Index()
         {
-            var bookStoreDbContext = _context.Books.Include(b => b.Author);
-            return View(await bookStoreDbContext.ToListAsync());
+            var bookStoreDbContext = _context.Books
+                .Include(b => b.Author)
+                //Sortera boktitel i bokstavsordning
+                .OrderBy(b => b.Title.ToLower())
+                .ToListAsync();
+
+            return View(await bookStoreDbContext);
         }
 
         // GET: Books/Details/5
