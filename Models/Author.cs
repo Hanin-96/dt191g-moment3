@@ -10,7 +10,7 @@ namespace Moment3.Models
         [Display(Name ="Författare")]
         public string? AuthName { get; set; }
 
-        public List<Book>? Books { get; set; }
+        public List<Book>? Book { get; set; }
 
     }
 }

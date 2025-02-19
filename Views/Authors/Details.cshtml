@@ -19,10 +19,10 @@
     </dl>
     <h4>Böcker</h4>
     <ul>
-        @if (Model.Books != null)
+        @if (Model.Book != null)
         {
             //Skriv ut alla titlar på böcker under samma författare
-            @foreach (var book in Model.Books)
+            @foreach (var book in Model.Book)
             {
                 <li>@book.Title</li>
             }
