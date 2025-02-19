@@ -17,10 +17,11 @@
             @Html.DisplayFor(model => model.AuthName)
         </dd>
     </dl>
-    <h2>Böcker</h2>
+    <h4>Böcker</h4>
     <ul>
         @if (Model.Books != null)
         {
+            //Skriv ut alla titlar på böcker under samma författare
             @foreach (var book in Model.Books)
             {
                 <li>@book.Title</li>
