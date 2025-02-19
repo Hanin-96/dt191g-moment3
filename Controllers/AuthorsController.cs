@@ -34,6 +34,8 @@ namespace Moment3.Controllers
             }
 
             var author = await _context.Authors
+                //Inkluderar böcker
+                .Include(a => a.Books)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (author == null)
             {

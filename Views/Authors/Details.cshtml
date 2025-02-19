@@ -10,13 +10,23 @@
     <h4>Detaljer om författare</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.AuthName)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.AuthName)
         </dd>
     </dl>
+    <h2>Böcker</h2>
+    <ul>
+        @if (Model.Books != null)
+        {
+            @foreach (var book in Model.Books)
+            {
+                <li>@book.Title</li>
+            }
+        }
+    </ul>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Ändra</a> |
